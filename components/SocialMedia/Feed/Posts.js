@@ -4,15 +4,16 @@ import Post from "./Post";
 
 
 
-function Posts() {
+function Posts({ posts }) {
     const [realtimePosts] = useCollection(
         db.collection('posts').orderBy('timestamp', 'desc')
     );
 
     return (
         <div>
-            {realtimePosts?.docs.map((post) => (
-                <Post 
+           {realtimePosts
+            ? realtimePosts?.docs.map((post) => (
+                <Post
                     key={post.id}
                     name={post.data().name}
                     message={post.data().message}
@@ -20,8 +21,19 @@ function Posts() {
                     timestamp={post.data().timestamp}
                     image={post.data().image}
                     postImage={post.data().postImage}
+                />
+        ))
+        : posts?.map((post) => (
+            <Post
+                key={post.id}
+                name={post.name}
+                message={post.message}
+                email={post.email}
+                timestamp={post.timestamp}
+                image={post.image}
+                postImage={post.postImage}
             />
-            ))}
+        ))}
         </div>
     )
 }
