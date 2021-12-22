@@ -1,17 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
 
 @layer components {
   .icon {
     @apply hidden xl:inline-flex p-2 h-10 w-10 
-      bg-gray-200 rounded-full text-gray-700 
-      cursor-pointer hover:bg-gray-300;
+      bg-gray-900 rounded-full text-pink-800 
+      cursor-pointer hover:text-pink-300 hover:bg-gradient-to-l from-cyan-500 to-violet-800
+      hover:shadow-xl hover:shadow-pink-700/50 hover:animate-pulse;
   }
 
   .inputIcon {
     @apply flex items-center space-x-1 hover:bg-gray-100 
-    flex-grow justify-center p-2 rounded-xl cursor-pointer;
+    flex-grow justify-center p-2 rounded-lg cursor-pointer;
   }
 }

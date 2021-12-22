@@ -8,13 +8,14 @@ import{
     ViewGridIcon,
 } from "@heroicons/react/solid";
 import {
-    FlagIcon,
     PlayIcon,
-    SearchIcon,
     ShoppingCartIcon,
 } from "@heroicons/react/outline";
+import { WiDayCloudyGusts } from "react-icons/wi";
+import { TiWeatherCloudy } from 'react-icons/ti'
 import HeaderIcon from "./HeaderIcon";
 import { signOut, useSession } from "next-auth/react"
+import Link from "next/link";
 
 
 function Header() {
@@ -25,22 +26,27 @@ function Header() {
         <div className="
             sticky 
             top-0 
-            z-50 
-            bg-white 
+            z-50
+            bg-gradient-to-br from-gray-600 via-gray-800 to-black
             flex 
             items-center 
             p-2 
-            lg:px-5 
+            lg:px-7 
             shadow-md">
             {/* Left */}
             <div className="flex items-center">
-                <Image 
+                <h1 className="font-extrabold 
+                text-transparent 
+                text-3xl bg-clip-text 
+                font-MrDafoe
+                bg-gradient-to-r from-purple-400 to-sky-600">ViceBook</h1>
+                {/* <Image 
                     src="https://links.papareact.com/5me" 
                     width={40} 
                     height={40} 
                     layout="fixed"
-                />
-                <div className="
+                /> */}
+                {/* <div className="
                 flex 
                     ml-2 
                     items-center 
@@ -59,16 +65,16 @@ function Header() {
                             flex-shrink" 
                         type="text" 
                         placeholder="Search ViceBook" />
-                </div>
+                </div> */}
             </div>
 
 
             {/* Center */}
             <div className="flex justify-center flex-grow">
                 <div className="flex space-x-6 md:space-x-2 ">
-                    <HeaderIcon active Icon={HomeIcon}/>
-                    <HeaderIcon Icon={FlagIcon}/>
-                    <HeaderIcon Icon={PlayIcon}/>
+                    <HeaderIcon active Icon={WiDayCloudyGusts}/>
+                    <HeaderIcon Icon={TiWeatherCloudy}/>
+                    <Link href="/music"><a><HeaderIcon Icon={PlayIcon}/></a></Link>
                     <HeaderIcon Icon={ShoppingCartIcon}/>
                     <HeaderIcon Icon={UserGroupIcon}/>
                 </div>
@@ -87,7 +93,14 @@ function Header() {
                     layout="fixed"    
                 />
 
-                <p className="whitespace-nowrap font-semibold pr-3">{session.user.name}</p> 
+                <p className="whitespace-nowrap 
+                bg-clip-text 
+                text-transparent 
+                bg-gradient-to-l from-cyan-500 to-violet-800 
+                font-limelight 
+                pr-3 
+                text-decoration-line: line-through
+                text-decoration-color: #db2777">{session.user.name}</p> 
                 <ViewGridIcon className="icon" />
                 <ChatIcon className="icon" />
                 <BellIcon className="icon" />
